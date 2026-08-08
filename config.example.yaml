@@ -1,0 +1,18 @@
+# watchdog 설정 예시
+# 사용 방법: cp config.example.yaml config.yaml 후 값을 수정
+
+check_interval: 60s          # 체크 주기
+http_timeout: 10s            # HTTP 요청 타임아웃 (DNS 조회 포함)
+failure_threshold: 3         # 연속 실패 이 횟수면 DOWN 판정
+recovery_threshold: 2        # DOWN 상태에서 연속 성공 이 횟수면 UP 판정
+state_file: state.json       # 상태 유지 파일 (재시작 후에도 상태 이어감)
+
+targets:
+  - name: Homepage
+    url: http://192.168.0.10:3001
+  - name: Portainer
+    url: https://192.168.0.10:9443
+    insecure: true            # 자체 서명 인증서를 쓰는 서비스는 true
+
+discord:
+  webhook_url: https://discord.com/api/webhooks/000000/xxxxxxxx   # 비워두면 알림 없음
