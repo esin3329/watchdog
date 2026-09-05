@@ -1,1 +1,4 @@
 dist/
+config.yaml
+config.phone.yaml
+state.json
